@@ -1,0 +1,13 @@
+<%= simple_form_for @type do |f| %>
+  <%= f.input :name, :label => t('Type Name'), :readonly => readonly?(@type, 'name') %>
+  <%= f.input :brief_note, :label => t('Brief Note'), :input_html => {:rows => 2}, :readonly => readonly?(@type, 'brief_note') %>
+  <%= f.input :ranking_order, :label => t('Ranking Index'), :readonly => readonly?(@type, 'ranking_order'), :placehoder => '1, 2, 3 ...'%>
+  <% if readonly?(@type, 'active')%>
+    <%= f.input :active_noupdate, :label => t('Active'), :readonly => true, :required => false, :input_html => {:value => @type.active} %>
+  <% else %>
+    <%= f.input :active, :label => t('Active'), :collection => [['是', true], ['否', false]]%>
+  <% end %>
+  
+  <%= link_to t('Back'), types_path, :class => BUTTONS_CLS['action'] %>
+  <%= f.button :submit, t('Save'), :class => BUTTONS_CLS['action'] %>
+<% end %> 
