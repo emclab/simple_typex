@@ -1,9 +1,9 @@
-  <div class="pagination"><%= will_paginate models %></div>  
-  <% if false %>
+<% if false %>
   <%= render inline: ERB.new(@erb_code).result(binding) %>
-  <% end %>
   
-  <% if true %>
+<% else %>
+  <div class="pagination"><%= will_paginate models %></div>  
+  
   <h4><%=t('Types')%></h4>
   <table class="table table-striped">
     <tr>
@@ -46,5 +46,6 @@
 	    </th>
 	  </tr>
 	</table>
-  <% end %>
+	
+<% end %>
 
