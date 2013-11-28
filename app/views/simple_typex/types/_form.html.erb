@@ -12,7 +12,7 @@
     <%= f.input :active, :label => t('Active'), :collection => [['是', true], ['否', false]]%>
   <% end %>
   
-  <%= link_to t('Back'), types_path, :class => BUTTONS_CLS['action'] %>
+  <%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :class => BUTTONS_CLS['action']  %>
   <%= f.button :submit, t('Save'), :class => BUTTONS_CLS['action'] %>
 <% end %> 
 
