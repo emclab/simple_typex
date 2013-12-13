@@ -28,8 +28,8 @@
           <td><%= r.last_updated_by.name %></td>
           <td><%= link_to t('Edit'), edit_type_path(r, :format => :js), 
                            :remote => true, :class => BUTTONS_CLS['action'] if has_action_right?('update', params[:controller], r) %></td>
-          <td><%#= link_to t('New Task Template'), eval(simple_typex.new_task_template_path), :class => BUTTONS_CLS['action'] if has_action_right?('new', 'projectx/project_task_templates') %></td>
-          <td><%#= link_to t('Task Templates'), SUBURI + "/authentify/view_handler?index=1&url=#{eval(simple_typex.index_task_template_path)}", :class => BUTTONS_CLS['action'] if has_action_right?('index', 'projectx/project_task_templates') %></td>
+          <td><%= link_to t('New Task Template'), eval(simple_typex.new_task_template_path), :class => BUTTONS_CLS['action'] if has_action_right?('new', SimpleTypex.task_template_resource.to_s) %></td>
+          <td><%= link_to t('Task Templates'), SUBURI + "/authentify/view_handler?index=1&url=#{eval(simple_typex.index_task_template_path)}", :class => BUTTONS_CLS['action'] if has_action_right?('index', SimpleTypex.task_template_resource.to_s) %></td>
         </tr>
     <% end %>
 
