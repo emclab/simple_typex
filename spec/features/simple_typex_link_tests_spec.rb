@@ -37,6 +37,10 @@ describe "LinkTests" do
            :sql_code => "")
       ua1 = FactoryGirl.create(:user_access, :action => 'update', :resource => 'simple_typex_types', :role_definition_id => @role.id, :rank => 1,
            :sql_code => "")
+      ua1 = FactoryGirl.create(:user_access, :action => 'index', :resource => 'task_templatex_templates', :role_definition_id => @role.id, :rank => 1,
+           :sql_code => "TaskTemplatex::Template.where(:active => true).order('created_at DESC')")
+      ua1 = FactoryGirl.create(:user_access, :action => 'create', :resource => 'task_templatex_templates', :role_definition_id => @role.id, :rank => 1,
+           :sql_code => "")
              
       @t = FactoryGirl.create(:simple_typex_type, :active => true, :last_updated_by_id => @u.id)
       
@@ -51,14 +55,14 @@ describe "LinkTests" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
       visit types_path
       save_and_open_page
-      page.should have_content('Types')
+      page.should have_content('Type Definitions')
       click_link('Edit')
-      save_and_open_page
+      #save_and_open_page
       #page.should have_content('Update Type')
       
       visit types_path
       click_link 'New Type'
-      save_and_open_page
+      #save_and_open_page
     end
   end
 end

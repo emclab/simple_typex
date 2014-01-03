@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   mount SimpleTypex::Engine => "/simple_typex"
   mount Authentify::Engine => "/authentify"
   mount Commonx::Engine => "/commonx"
+  mount TaskTemplatex::Engine => '/task_template'
   
   resource :session
   

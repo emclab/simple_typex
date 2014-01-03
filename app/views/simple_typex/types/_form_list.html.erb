@@ -28,8 +28,8 @@
           <td><%= r.last_updated_by.name %></td>
           <td><%= link_to t('Edit'), edit_type_path(r, :format => :js), 
                            :remote => true, :class => BUTTONS_CLS['action'] if has_action_right?('update', params[:controller], r) %></td>
-          <td><%= link_to t('New Task Template'), eval(simple_typex.new_task_template_path), :class => BUTTONS_CLS['action'] if has_action_right?('new', SimpleTypex.task_template_resource.to_s) %></td>
-          <td><%= link_to t('Task Templates'), SUBURI + "/authentify/view_handler?index=1&url=#{eval(simple_typex.index_task_template_path)}", :class => BUTTONS_CLS['action'] if has_action_right?('index', SimpleTypex.task_template_resource.to_s) %></td>
+          <td><%= link_to t('New Task Template'), SUBURI + "/authentify/view_handler?index=1&url=#{SUBURI + CGI.escape(eval(SimpleTypex.new_task_template_path.to_s))}", :class => BUTTONS_CLS['action'] if has_action_right?('new', SimpleTypex.task_template_resource.to_s) %></td>
+          <td><%= link_to t('Task Templates'), SUBURI + "/authentify/view_handler?index=1&url=#{SUBURI + CGI.escape(eval(SimpleTypex.index_task_template_path.to_s))}", :class => BUTTONS_CLS['action'] if has_action_right?('index', SimpleTypex.task_template_resource.to_s) %></td>
         </tr>
     <% end %>
 
@@ -39,7 +39,7 @@
 	  <tr>
 	    <th>
 	    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :class => BUTTONS_CLS['action']  %>
+                <%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :id => 'close', :class => BUTTONS_CLS['action']  %>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	    	<%= link_to t("New Type"), new_type_path( :format => :js), :remote => true, 
                :id => 'new_log_link', :class => BUTTONS_CLS['action'] if has_action_right?('create', params[:controller]) %>
